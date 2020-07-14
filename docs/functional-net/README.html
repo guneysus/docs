@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="functionalnetdll-v0000-api-documentation">functional.net.dll v.0.0.0.0 API documentation</h1>
+<p>Created by
+<a href="https://github.com/loxsmoke/mddox">mddox</a> on 14/03/2020</p>
+<h1 id="all-types">All types</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#ext-class">Ext Class</a></td>
+<td><a href="#f%3Ct1,-t2,-r%3E-class">F&lt;T1, T2, R&gt; Class</a></td>
+<td><a href="#memoizer-class">Memoizer Class</a></td>
+</tr>
+<tr>
+<td><a href="#f%3Ct1%3E-class">F&lt;T1&gt; Class</a></td>
+<td><a href="#factory-class">Factory Class</a></td>
+<td><a href="#pipe%3Ct%C4%B1n%3E-class">Pipe&lt;TIn&gt; Class</a></td>
+</tr>
+<tr>
+<td><a href="#f%3Ct1,-r%3E-class">F&lt;T1, R&gt; Class</a></td>
+<td><a href="#fo%3Ct%3E-class">Fo&lt;T&gt; Class</a></td>
+<td><a href="#pipe%3Ct%C4%B1n,-tout%3E-class">Pipe&lt;TIn, TOut&gt; Class</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="ext-class">Ext Class</h1>
+<p>Namespace: functional.net</p>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Returns</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>aggregator(T seed, Func&lt;T, T&gt;[] fns)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>aggregator(Func&lt;T&gt; seed, Func&lt;T, T&gt;[] fns)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>apply(IEnumerable&lt;T&gt; source, Action&lt;T&gt; action)</strong></td>
+<td>void</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>chunk(IEnumerable&lt;T&gt; collection, int size)</strong></td>
+<td>IEnumerable&lt;IEnumerable&lt;T&gt;&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1)</strong></td>
+<td>Func&lt;T1, T2&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2)</strong></td>
+<td>Func&lt;T1, T3&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3)</strong></td>
+<td>Func&lt;T1, T4&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4)</strong></td>
+<td>Func&lt;T1, T5&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5)</strong></td>
+<td>Func&lt;T1, T6&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6)</strong></td>
+<td>Func&lt;T1, T7&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7)</strong></td>
+<td>Func&lt;T1, T8&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7, Func&lt;T8, T9&gt; f8)</strong></td>
+<td>Func&lt;T1, T9&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7, Func&lt;T8, T9&gt; f8, Func&lt;T9, T10&gt; f9)</strong></td>
+<td>Func&lt;T1, T10&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7, Func&lt;T8, T9&gt; f8, Func&lt;T9, T10&gt; f9, Func&lt;T10, T11&gt; f10)</strong></td>
+<td>Func&lt;T1, T11&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7, Func&lt;T8, T9&gt; f8, Func&lt;T9, T10&gt; f9, Func&lt;T10, T11&gt; f10, Func&lt;T11, T12&gt; f11)</strong></td>
+<td>Func&lt;T1, T12&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7, Func&lt;T8, T9&gt; f8, Func&lt;T9, T10&gt; f9, Func&lt;T10, T11&gt; f10, Func&lt;T11, T12&gt; f11, Func&lt;T12, T13&gt; f12)</strong></td>
+<td>Func&lt;T1, T13&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7, Func&lt;T8, T9&gt; f8, Func&lt;T9, T10&gt; f9, Func&lt;T10, T11&gt; f10, Func&lt;T11, T12&gt; f11, Func&lt;T12, T13&gt; f12, Func&lt;T13, T14&gt; f13)</strong></td>
+<td>Func&lt;T1, T14&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7, Func&lt;T8, T9&gt; f8, Func&lt;T9, T10&gt; f9, Func&lt;T10, T11&gt; f10, Func&lt;T11, T12&gt; f11, Func&lt;T12, T13&gt; f12, Func&lt;T13, T14&gt; f13, Func&lt;T14, T15&gt; f14)</strong></td>
+<td>Func&lt;T1, T15&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7, Func&lt;T8, T9&gt; f8, Func&lt;T9, T10&gt; f9, Func&lt;T10, T11&gt; f10, Func&lt;T11, T12&gt; f11, Func&lt;T12, T13&gt; f12, Func&lt;T13, T14&gt; f13, Func&lt;T14, T15&gt; f14, Func&lt;T15, T16&gt; f15)</strong></td>
+<td>Func&lt;T1, T16&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7, Func&lt;T8, T9&gt; f8, Func&lt;T9, T10&gt; f9, Func&lt;T10, T11&gt; f10, Func&lt;T11, T12&gt; f11, Func&lt;T12, T13&gt; f12, Func&lt;T13, T14&gt; f13, Func&lt;T14, T15&gt; f14, Func&lt;T15, T16&gt; f15, Func&lt;T16, T17&gt; f16)</strong></td>
+<td>Func&lt;T1, T17&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7, Func&lt;T8, T9&gt; f8, Func&lt;T9, T10&gt; f9, Func&lt;T10, T11&gt; f10, Func&lt;T11, T12&gt; f11, Func&lt;T12, T13&gt; f12, Func&lt;T13, T14&gt; f13, Func&lt;T14, T15&gt; f14, Func&lt;T15, T16&gt; f15, Func&lt;T16, T17&gt; f16, Func&lt;T17, T18&gt; f17)</strong></td>
+<td>Func&lt;T1, T18&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7, Func&lt;T8, T9&gt; f8, Func&lt;T9, T10&gt; f9, Func&lt;T10, T11&gt; f10, Func&lt;T11, T12&gt; f11, Func&lt;T12, T13&gt; f12, Func&lt;T13, T14&gt; f13, Func&lt;T14, T15&gt; f14, Func&lt;T15, T16&gt; f15, Func&lt;T16, T17&gt; f16, Func&lt;T17, T18&gt; f17, Func&lt;T18, T19&gt; f18)</strong></td>
+<td>Func&lt;T1, T19&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7, Func&lt;T8, T9&gt; f8, Func&lt;T9, T10&gt; f9, Func&lt;T10, T11&gt; f10, Func&lt;T11, T12&gt; f11, Func&lt;T12, T13&gt; f12, Func&lt;T13, T14&gt; f13, Func&lt;T14, T15&gt; f14, Func&lt;T15, T16&gt; f15, Func&lt;T16, T17&gt; f16, Func&lt;T17, T18&gt; f17, Func&lt;T18, T19&gt; f18, Func&lt;T19, T20&gt; f19)</strong></td>
+<td>Func&lt;T1, T20&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7, Func&lt;T8, T9&gt; f8, Func&lt;T9, T10&gt; f9, Func&lt;T10, T11&gt; f10, Func&lt;T11, T12&gt; f11, Func&lt;T12, T13&gt; f12, Func&lt;T13, T14&gt; f13, Func&lt;T14, T15&gt; f14, Func&lt;T15, T16&gt; f15, Func&lt;T16, T17&gt; f16, Func&lt;T17, T18&gt; f17, Func&lt;T18, T19&gt; f18, Func&lt;T19, T20&gt; f19, Func&lt;T20, T21&gt; f20)</strong></td>
+<td>Func&lt;T1, T21&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7, Func&lt;T8, T9&gt; f8, Func&lt;T9, T10&gt; f9, Func&lt;T10, T11&gt; f10, Func&lt;T11, T12&gt; f11, Func&lt;T12, T13&gt; f12, Func&lt;T13, T14&gt; f13, Func&lt;T14, T15&gt; f14, Func&lt;T15, T16&gt; f15, Func&lt;T16, T17&gt; f16, Func&lt;T17, T18&gt; f17, Func&lt;T18, T19&gt; f18, Func&lt;T19, T20&gt; f19, Func&lt;T20, T21&gt; f20, Func&lt;T21, T22&gt; f21)</strong></td>
+<td>Func&lt;T1, T22&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7, Func&lt;T8, T9&gt; f8, Func&lt;T9, T10&gt; f9, Func&lt;T10, T11&gt; f10, Func&lt;T11, T12&gt; f11, Func&lt;T12, T13&gt; f12, Func&lt;T13, T14&gt; f13, Func&lt;T14, T15&gt; f14, Func&lt;T15, T16&gt; f15, Func&lt;T16, T17&gt; f16, Func&lt;T17, T18&gt; f17, Func&lt;T18, T19&gt; f18, Func&lt;T19, T20&gt; f19, Func&lt;T20, T21&gt; f20, Func&lt;T21, T22&gt; f21, Func&lt;T22, T23&gt; f22)</strong></td>
+<td>Func&lt;T1, T23&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7, Func&lt;T8, T9&gt; f8, Func&lt;T9, T10&gt; f9, Func&lt;T10, T11&gt; f10, Func&lt;T11, T12&gt; f11, Func&lt;T12, T13&gt; f12, Func&lt;T13, T14&gt; f13, Func&lt;T14, T15&gt; f14, Func&lt;T15, T16&gt; f15, Func&lt;T16, T17&gt; f16, Func&lt;T17, T18&gt; f17, Func&lt;T18, T19&gt; f18, Func&lt;T19, T20&gt; f19, Func&lt;T20, T21&gt; f20, Func&lt;T21, T22&gt; f21, Func&lt;T22, T23&gt; f22, Func&lt;T23, T24&gt; f23)</strong></td>
+<td>Func&lt;T1, T24&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7, Func&lt;T8, T9&gt; f8, Func&lt;T9, T10&gt; f9, Func&lt;T10, T11&gt; f10, Func&lt;T11, T12&gt; f11, Func&lt;T12, T13&gt; f12, Func&lt;T13, T14&gt; f13, Func&lt;T14, T15&gt; f14, Func&lt;T15, T16&gt; f15, Func&lt;T16, T17&gt; f16, Func&lt;T17, T18&gt; f17, Func&lt;T18, T19&gt; f18, Func&lt;T19, T20&gt; f19, Func&lt;T20, T21&gt; f20, Func&lt;T21, T22&gt; f21, Func&lt;T22, T23&gt; f22, Func&lt;T23, T24&gt; f23, Func&lt;T24, T25&gt; f24)</strong></td>
+<td>Func&lt;T1, T25&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>compose(Func&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2, Func&lt;T3, T4&gt; f3, Func&lt;T4, T5&gt; f4, Func&lt;T5, T6&gt; f5, Func&lt;T6, T7&gt; f6, Func&lt;T7, T8&gt; f7, Func&lt;T8, T9&gt; f8, Func&lt;T9, T10&gt; f9, Func&lt;T10, T11&gt; f10, Func&lt;T11, T12&gt; f11, Func&lt;T12, T13&gt; f12, Func&lt;T13, T14&gt; f13, Func&lt;T14, T15&gt; f14, Func&lt;T15, T16&gt; f15, Func&lt;T16, T17&gt; f16, Func&lt;T17, T18&gt; f17, Func&lt;T18, T19&gt; f18, Func&lt;T19, T20&gt; f19, Func&lt;T20, T21&gt; f20, Func&lt;T21, T22&gt; f21, Func&lt;T22, T23&gt; f22, Func&lt;T23, T24&gt; f23, Func&lt;T24, T25&gt; f24, Func&lt;T25, T26&gt; f25)</strong></td>
+<td>Func&lt;T1, T26&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>dict(IEnumerable&lt;K&gt; keys)</strong></td>
+<td>Dictionary&lt;K, V&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>dict((TKey, TValue)[] items)</strong></td>
+<td>Dictionary&lt;TKey, TValue&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>drop(List&lt;T&gt; collection, int size)</strong></td>
+<td>IEnumerable&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>drop(IQueryable&lt;T&gt; collection, int size)</strong></td>
+<td>IQueryable&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>dropWhile(List&lt;T&gt; collection, Func&lt;T, bool&gt; predicate)</strong></td>
+<td>IEnumerable&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>flatten(IEnumerable&lt;List&lt;T&gt;&gt; enumerable)</strong></td>
+<td>IEnumerable&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>fun(Func&lt;T1, R&gt; f)</strong></td>
+<td>Func&lt;T1, R&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>hashSet(T[] args)</strong></td>
+<td>HashSet&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>intersect(IEnumerable&lt;T&gt; first, IEnumerable&lt;T&gt; second)</strong></td>
+<td>IEnumerable&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>intersect(IEnumerable&lt;T&gt; first, IEnumerable&lt;T&gt; second, IEqualityComparer&lt;T&gt; comparer)</strong></td>
+<td>IEnumerable&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>iter(IEnumerable&lt;T&gt; source)</strong></td>
+<td>IEnumerable&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>join(IEnumerable&lt;T&gt; arr, string seperator)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>keys(Dictionary&lt;K, V&gt; data)</strong></td>
+<td>IEnumerable&lt;K&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>list(T[] args)</strong></td>
+<td>List&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>map(IEnumerable&lt;T&gt; source, Func&lt;T, T&gt; fn)</strong></td>
+<td>IEnumerable&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>map(Tuple&lt;T1, T2&gt; _, Action&lt;T1, T2&gt; action)</strong></td>
+<td>void</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>map(Tuple&lt;T1, T2, T3&gt; _, Action&lt;T1, T2, T3&gt; action)</strong></td>
+<td>void</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>map(Tuple&lt;T1, T2, T3, T4&gt; _, Action&lt;T1, T2, T3, T4&gt; action)</strong></td>
+<td>void</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>map(Tuple&lt;T1, T2, T3, T4, T5&gt; _, Action&lt;T1, T2, T3, T4, T5&gt; action)</strong></td>
+<td>void</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>map(Tuple&lt;T1, T2, T3, T4, T5, T6&gt; _, Action&lt;T1, T2, T3, T4, T5, T6&gt; action)</strong></td>
+<td>void</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>map(Tuple&lt;T1, T2, T3, T4, T5, T6, T7&gt; _, Action&lt;T1, T2, T3, T4, T5, T6, T7&gt; action)</strong></td>
+<td>void</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>map(Tuple&lt;T1, T2&gt; _, Func&lt;T1, T2, TResult&gt; action)</strong></td>
+<td>TResult</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>map(Tuple&lt;T1, T2, T3&gt; _, Func&lt;T1, T2, T3, TResult&gt; action)</strong></td>
+<td>TResult</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>map(Tuple&lt;T1, T2, T3, T4&gt; _, Func&lt;T1, T2, T3, T4, TResult&gt; action)</strong></td>
+<td>TResult</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>map(Tuple&lt;T1, T2, T3, T4, T5&gt; _, Func&lt;T1, T2, T3, T4, T5, TResult&gt; action)</strong></td>
+<td>TResult</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>map(Tuple&lt;T1, T2, T3, T4, T5, T6&gt; _, Func&lt;T1, T2, T3, T4, T5, T6, TResult&gt; action)</strong></td>
+<td>TResult</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>map(Tuple&lt;T1, T2, T3, T4, T5, T6, T7&gt; _, Func&lt;T1, T2, T3, T4, T5, T6, T7, TResult&gt; action)</strong></td>
+<td>TResult</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>merge(Dictionary&lt;K, V&gt; dict1, Dictionary&lt;K, V&gt; dict2)</strong></td>
+<td>Dictionary&lt;K, V&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>merge(IEnumerable&lt;char&gt; a, IEnumerable&lt;char&gt; b)</strong></td>
+<td>IEnumerable&lt;char&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>omit(Dictionary&lt;K, V&gt; data, K[] omitted)</strong></td>
+<td>Dictionary&lt;K, V&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>omitBy(Dictionary&lt;K, V&gt; data, Func&lt;KeyValuePair&lt;K, V&gt;, bool&gt; predicate)</strong></td>
+<td>Dictionary&lt;K, V&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pickBy(Dictionary&lt;K, V&gt; data, Func&lt;KeyValuePair&lt;K, V&gt;, bool&gt; predicate)</strong></td>
+<td>Dictionary&lt;K, V&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7, Func&lt;T, T&gt; f8)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7, Func&lt;T, T&gt; f8, Func&lt;T, T&gt; f9)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7, Func&lt;T, T&gt; f8, Func&lt;T, T&gt; f9, Func&lt;T, T&gt; f10)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7, Func&lt;T, T&gt; f8, Func&lt;T, T&gt; f9, Func&lt;T, T&gt; f10, Func&lt;T, T&gt; f11)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7, Func&lt;T, T&gt; f8, Func&lt;T, T&gt; f9, Func&lt;T, T&gt; f10, Func&lt;T, T&gt; f11, Func&lt;T, T&gt; f12)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7, Func&lt;T, T&gt; f8, Func&lt;T, T&gt; f9, Func&lt;T, T&gt; f10, Func&lt;T, T&gt; f11, Func&lt;T, T&gt; f12, Func&lt;T, T&gt; f13)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7, Func&lt;T, T&gt; f8, Func&lt;T, T&gt; f9, Func&lt;T, T&gt; f10, Func&lt;T, T&gt; f11, Func&lt;T, T&gt; f12, Func&lt;T, T&gt; f13, Func&lt;T, T&gt; f14)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7, Func&lt;T, T&gt; f8, Func&lt;T, T&gt; f9, Func&lt;T, T&gt; f10, Func&lt;T, T&gt; f11, Func&lt;T, T&gt; f12, Func&lt;T, T&gt; f13, Func&lt;T, T&gt; f14, Func&lt;T, T&gt; f15)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7, Func&lt;T, T&gt; f8, Func&lt;T, T&gt; f9, Func&lt;T, T&gt; f10, Func&lt;T, T&gt; f11, Func&lt;T, T&gt; f12, Func&lt;T, T&gt; f13, Func&lt;T, T&gt; f14, Func&lt;T, T&gt; f15, Func&lt;T, T&gt; f16)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7, Func&lt;T, T&gt; f8, Func&lt;T, T&gt; f9, Func&lt;T, T&gt; f10, Func&lt;T, T&gt; f11, Func&lt;T, T&gt; f12, Func&lt;T, T&gt; f13, Func&lt;T, T&gt; f14, Func&lt;T, T&gt; f15, Func&lt;T, T&gt; f16, Func&lt;T, T&gt; f17)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7, Func&lt;T, T&gt; f8, Func&lt;T, T&gt; f9, Func&lt;T, T&gt; f10, Func&lt;T, T&gt; f11, Func&lt;T, T&gt; f12, Func&lt;T, T&gt; f13, Func&lt;T, T&gt; f14, Func&lt;T, T&gt; f15, Func&lt;T, T&gt; f16, Func&lt;T, T&gt; f17, Func&lt;T, T&gt; f18)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7, Func&lt;T, T&gt; f8, Func&lt;T, T&gt; f9, Func&lt;T, T&gt; f10, Func&lt;T, T&gt; f11, Func&lt;T, T&gt; f12, Func&lt;T, T&gt; f13, Func&lt;T, T&gt; f14, Func&lt;T, T&gt; f15, Func&lt;T, T&gt; f16, Func&lt;T, T&gt; f17, Func&lt;T, T&gt; f18, Func&lt;T, T&gt; f19)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7, Func&lt;T, T&gt; f8, Func&lt;T, T&gt; f9, Func&lt;T, T&gt; f10, Func&lt;T, T&gt; f11, Func&lt;T, T&gt; f12, Func&lt;T, T&gt; f13, Func&lt;T, T&gt; f14, Func&lt;T, T&gt; f15, Func&lt;T, T&gt; f16, Func&lt;T, T&gt; f17, Func&lt;T, T&gt; f18, Func&lt;T, T&gt; f19, Func&lt;T, T&gt; f20)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7, Func&lt;T, T&gt; f8, Func&lt;T, T&gt; f9, Func&lt;T, T&gt; f10, Func&lt;T, T&gt; f11, Func&lt;T, T&gt; f12, Func&lt;T, T&gt; f13, Func&lt;T, T&gt; f14, Func&lt;T, T&gt; f15, Func&lt;T, T&gt; f16, Func&lt;T, T&gt; f17, Func&lt;T, T&gt; f18, Func&lt;T, T&gt; f19, Func&lt;T, T&gt; f20, Func&lt;T, T&gt; f21)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7, Func&lt;T, T&gt; f8, Func&lt;T, T&gt; f9, Func&lt;T, T&gt; f10, Func&lt;T, T&gt; f11, Func&lt;T, T&gt; f12, Func&lt;T, T&gt; f13, Func&lt;T, T&gt; f14, Func&lt;T, T&gt; f15, Func&lt;T, T&gt; f16, Func&lt;T, T&gt; f17, Func&lt;T, T&gt; f18, Func&lt;T, T&gt; f19, Func&lt;T, T&gt; f20, Func&lt;T, T&gt; f21, Func&lt;T, T&gt; f22)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7, Func&lt;T, T&gt; f8, Func&lt;T, T&gt; f9, Func&lt;T, T&gt; f10, Func&lt;T, T&gt; f11, Func&lt;T, T&gt; f12, Func&lt;T, T&gt; f13, Func&lt;T, T&gt; f14, Func&lt;T, T&gt; f15, Func&lt;T, T&gt; f16, Func&lt;T, T&gt; f17, Func&lt;T, T&gt; f18, Func&lt;T, T&gt; f19, Func&lt;T, T&gt; f20, Func&lt;T, T&gt; f21, Func&lt;T, T&gt; f22, Func&lt;T, T&gt; f23)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7, Func&lt;T, T&gt; f8, Func&lt;T, T&gt; f9, Func&lt;T, T&gt; f10, Func&lt;T, T&gt; f11, Func&lt;T, T&gt; f12, Func&lt;T, T&gt; f13, Func&lt;T, T&gt; f14, Func&lt;T, T&gt; f15, Func&lt;T, T&gt; f16, Func&lt;T, T&gt; f17, Func&lt;T, T&gt; f18, Func&lt;T, T&gt; f19, Func&lt;T, T&gt; f20, Func&lt;T, T&gt; f21, Func&lt;T, T&gt; f22, Func&lt;T, T&gt; f23, Func&lt;T, T&gt; f24)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(Func&lt;T, T&gt; f1, Func&lt;T, T&gt; f2, Func&lt;T, T&gt; f3, Func&lt;T, T&gt; f4, Func&lt;T, T&gt; f5, Func&lt;T, T&gt; f6, Func&lt;T, T&gt; f7, Func&lt;T, T&gt; f8, Func&lt;T, T&gt; f9, Func&lt;T, T&gt; f10, Func&lt;T, T&gt; f11, Func&lt;T, T&gt; f12, Func&lt;T, T&gt; f13, Func&lt;T, T&gt; f14, Func&lt;T, T&gt; f15, Func&lt;T, T&gt; f16, Func&lt;T, T&gt; f17, Func&lt;T, T&gt; f18, Func&lt;T, T&gt; f19, Func&lt;T, T&gt; f20, Func&lt;T, T&gt; f21, Func&lt;T, T&gt; f22, Func&lt;T, T&gt; f23, Func&lt;T, T&gt; f24, Func&lt;T, T&gt; f25)</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Range(int count)</strong></td>
+<td>IEnumerable&lt;int&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Range(int start, int end)</strong></td>
+<td>IEnumerable&lt;int&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Range(int start, int end, int step)</strong></td>
+<td>IEnumerable&lt;int&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>RangeRight(int end, int start)</strong></td>
+<td>IEnumerable&lt;int&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>reduce(IEnumerable&lt;T&gt; source, Func&lt;T, T, T&gt; func)</strong></td>
+<td>T</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>reduce(IEnumerable&lt;T&gt; source, R seed, Func&lt;R, T, R&gt; func)</strong></td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>reduce(IEnumerable&lt;TSource&gt; source, TAccumulate seed, Func&lt;TAccumulate, TSource, TAccumulate&gt; func, Func&lt;TAccumulate, TResult&gt; resultSelector)</strong></td>
+<td>TResult</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Same(IEnumerable&lt;T&gt; first, IEnumerable&lt;T&gt; second)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Same(Dictionary&lt;TKey, TValue&gt; first, Dictionary&lt;TKey, TValue&gt; second)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Same(IEnumerable&lt;T&gt; first, IEnumerable&lt;T&gt; second, IEqualityComparer&lt;T&gt; equalityComparer)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Sort(IEnumerable&lt;T&gt; enumerable, IComparer&lt;T&gt; comparer)</strong></td>
+<td>IEnumerable&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>sortedDict((TKey, TValue)[] items)</strong></td>
+<td>SortedDictionary&lt;TKey, TValue&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>sortedDict(IComparer&lt;TKey&gt; comparer, (TKey, TValue)[] items)</strong></td>
+<td>SortedDictionary&lt;TKey, TValue&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>times(int n, Func&lt;T&gt; function)</strong></td>
+<td>IEnumerable&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>values(Dictionary&lt;K, V&gt; data)</strong></td>
+<td>IEnumerable&lt;V&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>zip(IEnumerable&lt;T1&gt; first, IEnumerable&lt;T2&gt; second)</strong></td>
+<td>IEnumerable&lt;(T1, T2)&gt;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="ft1-class">F<T1> Class</h1>
+<p>Namespace: functional.net</p>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>F&lt;T1&gt;(Func&lt;T1, T1&gt; func)</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="ft1-r-class">F&lt;T1, R&gt; Class</h1>
+<p>Namespace: functional.net</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Func</strong></td>
+<td>Func&lt;T1, R&gt;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>F&lt;T1, R&gt;(Func&lt;T1, R&gt; func)</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="ft1-t2-r-class">F&lt;T1, T2, R&gt; Class</h1>
+<p>Namespace: functional.net</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Func</strong></td>
+<td>Func&lt;T1, T2&gt;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>F&lt;T1, T2, R&gt;(Func&lt;T1, T2&gt; func)</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="factory-class">Factory Class</h1>
+<p>Namespace: functional.net</p>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Returns</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>fun(Func&lt;T1, R&gt; f)</strong></td>
+<td>Func&lt;T1, R&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>func(<a href="#f%3Ct1,-r%3E-class">F&lt;T1, R&gt;</a>&lt;T1, T2&gt; f1, Func&lt;T2, T3&gt; f2)</strong></td>
+<td><a href="#f%3Ct1,-r%3E-class">F&lt;T1, R&gt;</a>&lt;T1, T3&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>functor(Func&lt;T, T&gt; func)</strong></td>
+<td><a href="#f%3Ct1%3E-class">F&lt;T1&gt;</a>&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>functor(Func&lt;T1, R&gt; func)</strong></td>
+<td><a href="#f%3Ct1,-r%3E-class">F&lt;T1, R&gt;</a>&lt;T1, R&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(IEnumerable&lt;TIn&gt; iterable)</strong></td>
+<td><a href="#pipe%3Ct%C4%B1n,-tout%3E-class">Pipe&lt;TIn, TOut&gt;</a>&lt;TIn, TOut&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(IEnumerable&lt;TOut&gt; iterable)</strong></td>
+<td><a href="#pipe%3Ct%C4%B1n%3E-class">Pipe&lt;TIn&gt;</a>&lt;TOut&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>pipe(IEnumerable&lt;TIn&gt; iterable, Func&lt;TIn, TOut&gt; func)</strong></td>
+<td><a href="#pipe%3Ct%C4%B1n%3E-class">Pipe&lt;TIn&gt;</a>&lt;TOut&gt;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="fot-class">Fo<T> Class</h1>
+<p>Namespace: functional.net</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Func</strong></td>
+<td>Func&lt;T, T&gt;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fo&lt;T&gt;(Func&lt;T, T&gt; func)</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="memoizer-class">Memoizer Class</h1>
+<p>Namespace: functional.net</p>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Returns</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Create(Func&lt;A, R&gt; f)</strong></td>
+<td>Func&lt;A, R&gt;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="pipetin-class">Pipe<TIn> Class</h1>
+<p>Namespace: functional.net</p>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pipe&lt;TIn&gt;(IEnumerable&lt;TIn&gt; enumerable)</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Returns</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GetEnumerator()</strong></td>
+<td>IEnumerator&lt;TIn&gt;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="pipetin-tout-class">Pipe&lt;TIn, TOut&gt; Class</h1>
+<p>Namespace: functional.net</p>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pipe&lt;TIn, TOut&gt;(IEnumerable&lt;TIn&gt; enumerable)</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Returns</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GetEnumerator()</strong></td>
+<td>IEnumerator&lt;TIn&gt;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>

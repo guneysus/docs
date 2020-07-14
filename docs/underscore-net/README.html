@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="underscorenetdll-v0500-api-documentation">underscore.net.dll v.0.5.0.0 API documentation</h1>
+<p>Created by
+<a href="https://github.com/loxsmoke/mddox">mddox</a> on 14/03/2020</p>
+<h1 id="all-types">All types</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#underscore-class">Underscore Class</a></td>
+<td><a href="#%C4%B1ndexabledict%3Ctkey,-tvalue%3E-class">IndexableDict&lt;TKey, TValue&gt; Class</a></td>
+<td><a href="#genericequalitycomparer%3Ct%3E-class">GenericEqualityComparer&lt;T&gt; Class</a></td>
+</tr>
+<tr>
+<td><a href="#%C4%B1ndexable%3Ctkey,-tvalue%3E-class">Indexable&lt;TKey, TValue&gt; Class</a></td>
+<td><a href="#genericcomparer%3Ct%3E-class">GenericComparer&lt;T&gt; Class</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="underscore-class">Underscore Class</h1>
+<p>Namespace:</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AsciiAll</strong></td>
+<td>IEnumerable&lt;char&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>AsciiLetters</strong></td>
+<td>IEnumerable&lt;char&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>AsciiPunctuation</strong></td>
+<td>IEnumerable&lt;char&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Digits</strong></td>
+<td>IEnumerable&lt;char&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>AsciiLowercase</strong></td>
+<td>IEnumerable&lt;char&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>AsciiUppercase</strong></td>
+<td>IEnumerable&lt;char&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>TurkishAndEnglishAlphabets</strong></td>
+<td>IEnumerable&lt;char&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>TurkishAlphabet</strong></td>
+<td>IEnumerable&lt;char&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>BOOLEAN_VALUES</strong></td>
+<td>string[]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Returns</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>And(bool value, bool other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Base64(string message)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Base64String(byte[] byteArray)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Bin(sbyte value)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Bin(byte value)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Bin(short value)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Bin(ushort value)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Bin(int value)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Bin(uint value)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Bin(long value)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Bin(ulong value)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Bool(string value)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Bool(string value, IEnumerable&lt;string&gt; trueValues)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ByteArray(string s)</strong></td>
+<td>byte[]</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Capitalize(string v)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Clone(IList&lt;T&gt; input)</strong></td>
+<td>IList&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Clone(ICollection&lt;T&gt; input)</strong></td>
+<td>ICollection&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Clone(IEnumerable&lt;T&gt; input)</strong></td>
+<td>IEnumerable&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Clone(IReadOnlyCollection&lt;T&gt; input)</strong></td>
+<td>IReadOnlyCollection&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Clone(IReadOnlyList&lt;T&gt; input)</strong></td>
+<td>IReadOnlyList&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Clone(T obj)</strong></td>
+<td>T</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Comparer(Func&lt;T, T, int&gt; compare)</strong></td>
+<td>IComparer&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Compress(string text)</strong></td>
+<td>byte[]</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Concat(IEnumerable&lt;char&gt; vs)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Constuctor(Type[] types)</strong></td>
+<td>Func&lt;Object[], T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Constuctor(Type type, Type[] types)</strong></td>
+<td>Func&lt;Object[], Object&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Converter(Func&lt;Tin, Tout&gt; fn)</strong></td>
+<td>Converter&lt;Tin, Tout&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>CopyStream(Stream src, Stream dest)</strong></td>
+<td>void</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Date(DateTime date)</strong></td>
+<td>DateTime</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Datetime(int unixTimeStamp)</strong></td>
+<td>DateTime</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Datetime(long miliseconds)</strong></td>
+<td>DateTime</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Datetime(string s, string format, string cultureString)</strong></td>
+<td>DateTime</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Datetime(string s, string format, CultureInfo provider)</strong></td>
+<td>DateTime</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>DayNames(CultureInfo cultureInfo, DayOfWeek startFrom)</strong></td>
+<td>IEnumerable&lt;string&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Deburr(string v)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>DecodeHtml(string htmlText)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Decompress(byte[] data)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Decr(sbyte minuend, sbyte subtrahend)</strong></td>
+<td>sbyte</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Decr(byte minuend, byte subtrahend)</strong></td>
+<td>byte</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Decr(short minuend, short subtrahend)</strong></td>
+<td>short</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Decr(ushort minuend, ushort subtrahend)</strong></td>
+<td>ushort</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Decr(int minuend, int subtrahend)</strong></td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Decr(uint minuend, uint subtrahend)</strong></td>
+<td>uint</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Decr(long minuend, long subtrahend)</strong></td>
+<td>long</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Decr(ulong minuend, ulong subtrahend)</strong></td>
+<td>ulong</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Decr(float minuend, float subtrahend)</strong></td>
+<td>float</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Decr(double minuend, double subtrahend)</strong></td>
+<td>double</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Decr(decimal minuend, decimal subtrahend)</strong></td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>DecryptWithXOr(string base64encrypted, string p)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Default()</strong></td>
+<td>T</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Default(Type type)</strong></td>
+<td>Object</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Divide(sbyte dividend, sbyte divisor)</strong></td>
+<td>sbyte</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Divide(byte dividend, byte divisor)</strong></td>
+<td>byte</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Divide(short dividend, short divisor)</strong></td>
+<td>short</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Divide(ushort dividend, ushort divisor)</strong></td>
+<td>ushort</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Divide(int dividend, int divisor)</strong></td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Divide(uint dividend, uint divisor)</strong></td>
+<td>uint</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Divide(long dividend, long divisor)</strong></td>
+<td>long</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Divide(ulong dividend, ulong divisor)</strong></td>
+<td>ulong</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Divide(float dividend, float divisor)</strong></td>
+<td>float</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Divide(double dividend, double divisor)</strong></td>
+<td>double</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Divide(decimal dividend, decimal divisor)</strong></td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>EncryptWithXOr(string message, string secret)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Enum(Object value)</strong></td>
+<td>T</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Enum(string enumString)</strong></td>
+<td>T</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>EnumValues()</strong></td>
+<td>IEnumerable&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Eq(long value, long other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Eq(ulong value, ulong other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Eq(float value, float other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Eq(double value, double other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Eq(decimal value, decimal other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Eq(char value, char other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Eq(Enum value, Enum other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Eq(string value, string other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Eq(bool value, bool other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Eq(sbyte value, sbyte other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Eq(byte value, byte other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Eq(short value, short other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Eq(ushort value, ushort other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Eq(int value, int other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Eq(uint value, uint other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>EqualityComparer(Func&lt;T, T, bool&gt; comparer)</strong></td>
+<td>IEqualityComparer&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Escape(string v)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Extractor(string pattern, RegexOptions options)</strong></td>
+<td>Func&lt;string, IEnumerable&lt;string&gt;&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Factorial(int number)</strong></td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>FetchAndParseMarkdownAsync(Uri uri)</strong></td>
+<td>Task&lt;MarkdownDocument&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>FetchAndParseRSSAsync(Uri uri)</strong></td>
+<td>Task&lt;IEnumerable&lt;RssSchema&gt;&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>FirstDayOfMonth(DateTime date)</strong></td>
+<td>DateTime</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>FixHtml(string html)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Floor(decimal number)</strong></td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Floor(double number)</strong></td>
+<td>double</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>FromBase64String(string s)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>FromBase64ToByteArray(string s)</strong></td>
+<td>byte[]</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GetFieldOrProperty(T instance, string name)</strong></td>
+<td>Object</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GetFieldOrProperty(Type type, Object instance, string name)</strong></td>
+<td>Object</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GetMethodAsDelegate(T instance, string name)</strong></td>
+<td>Func&lt;Object[], Object&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GetMethodAsDelegate(T instance, string name, Type[] types)</strong></td>
+<td>Func&lt;Object[], Object&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GetValue(T obj, string name)</strong></td>
+<td>Object</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gt(sbyte value, sbyte other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gt(byte value, byte other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gt(short value, short other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gt(ushort value, ushort other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gt(int value, int other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gt(uint value, uint other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gt(long value, long other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gt(ulong value, ulong other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gt(float value, float other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gt(double value, double other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gt(decimal value, decimal other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gte(sbyte value, sbyte other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gte(byte value, byte other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gte(short value, short other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gte(ushort value, ushort other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gte(int value, int other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gte(uint value, uint other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gte(long value, long other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gte(ulong value, ulong other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gte(float value, float other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gte(double value, double other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gte(decimal value, decimal other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Hex(byte[] ba)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Hex(string text)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>HexToByteArray(string hex)</strong></td>
+<td>byte[]</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>HexToString(string hex)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>HttpClient()</strong></td>
+<td>HttpClient</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>HttpClient(HttpMessageHandler handler)</strong></td>
+<td>HttpClient</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>HttpClient(HttpMessageHandler handler, bool disposeHandler)</strong></td>
+<td>HttpClient</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>HttpGetAsync(string uri)</strong></td>
+<td>Task&lt;HttpResponseMessage&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>HttpGetAsync(Uri uri)</strong></td>
+<td>Task&lt;HttpResponseMessage&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>HttpGetStreamAsync(string uri)</strong></td>
+<td>Task&lt;Stream&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>HttpGetStreamAsync(Uri uri)</strong></td>
+<td>Task&lt;Stream&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>HttpGetStringAsync(Uri uri)</strong></td>
+<td>Task&lt;string&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>HttpGetStringAsync(string uri)</strong></td>
+<td>Task&lt;string&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>HttpPostAsync(string uri, HttpContent httpContent)</strong></td>
+<td>Task&lt;HttpResponseMessage&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Incr(decimal augend, decimal addend)</strong></td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Incr(sbyte augend, sbyte addend)</strong></td>
+<td>sbyte</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Incr(byte augend, byte addend)</strong></td>
+<td>byte</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Incr(short augend, short addend)</strong></td>
+<td>short</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Incr(ushort augend, ushort addend)</strong></td>
+<td>ushort</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Incr(int augend, int addend)</strong></td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Incr(uint augend, uint addend)</strong></td>
+<td>uint</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Incr(long augend, long addend)</strong></td>
+<td>long</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Incr(ulong augend, ulong addend)</strong></td>
+<td>ulong</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Incr(float augend, float addend)</strong></td>
+<td>float</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Incr(double augend, double addend)</strong></td>
+<td>double</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(sbyte number, sbyte end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(byte number, byte end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(short number, short end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(ushort number, ushort end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(int number, int end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(uint number, uint end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(long number, long end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(ulong number, ulong end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(float number, float end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(double number, double end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(decimal number, decimal end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(sbyte number, sbyte start, sbyte end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(byte number, byte start, byte end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(short number, short start, short end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(ushort number, ushort start, ushort end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(int number, int start, int end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(uint number, uint start, uint end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(long number, long start, long end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(ulong number, ulong start, ulong end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(float number, float start, float end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(double number, double start, double end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>InRange(decimal number, decimal start, decimal end)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Int(string s)</strong></td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Invoke(T instance, string name, Object[] args)</strong></td>
+<td>Object</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Invoke(Type type, Object instance, string name, Object[] args)</strong></td>
+<td>Object</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Invoke(T instance, string name, Object[] args, Type[] types)</strong></td>
+<td>Object</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Invoke(Type type, Object instance, string name, Object[] args, Type[] types)</strong></td>
+<td>Object</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsBool(string v)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsCharacterString(string str)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsDecimal(string v)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsEmail(string str)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsFloat(string v, IFormatProvider formatProvider, NumberStyles numberStyles)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsInteger(string v)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsNan(string v, IFormatProvider formatProvider)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsNull(decimal? v)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsNull(double? v)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsNull(float? v)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsNull(string v)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsNull(DateTime? v)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsNull(bool? v)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsNull(int? v)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsNull(Guid? v)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsNullable()</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsNullable(Type type)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsNumber(string v, IFormatProvider formatProvider)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IsPhoneNumber(string str)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>indexableDict(Func&lt;TKey, TValue&gt; generator)</strong></td>
+<td><a href="#%C4%B1ndexabledict%3Ctkey,-tvalue%3E-class">IndexableDict&lt;TKey, TValue&gt;</a>&lt;TKey, TValue&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>indexableDict(Func&lt;TKey, TValue&gt; generator, IDictionary&lt;TKey, TValue&gt; storage)</strong></td>
+<td><a href="#%C4%B1ndexabledict%3Ctkey,-tvalue%3E-class">IndexableDict&lt;TKey, TValue&gt;</a>&lt;TKey, TValue&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>LastDayOfMonth(DateTime date)</strong></td>
+<td>DateTime</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Len(string s)</strong></td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Len(IEnumerable&lt;T&gt; s)</strong></td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>LOr(sbyte a, sbyte b)</strong></td>
+<td>sbyte</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>LOr(byte a, byte b)</strong></td>
+<td>byte</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>LOr(short a, short b)</strong></td>
+<td>short</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>LOr(ushort a, ushort b)</strong></td>
+<td>ushort</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>LOr(int a, int b)</strong></td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>LOr(uint a, uint b)</strong></td>
+<td>uint</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>LOr(long a, long b)</strong></td>
+<td>long</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>LOr(ulong a, ulong b)</strong></td>
+<td>ulong</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>LOr(bool a, bool b)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>LowerCase(string v)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lt(sbyte value, sbyte other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lt(byte value, byte other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lt(short value, short other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lt(ushort value, ushort other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lt(int value, int other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lt(uint value, uint other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lt(long value, long other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lt(ulong value, ulong other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lt(float value, float other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lt(double value, double other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lt(decimal value, decimal other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lte(sbyte value, sbyte other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lte(byte value, byte other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lte(short value, short other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lte(ushort value, ushort other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lte(int value, int other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lte(uint value, uint other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lte(long value, long other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lte(ulong value, ulong other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lte(float value, float other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lte(double value, double other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Lte(decimal value, decimal other)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Mask(string input, string pattern, string replacement)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>MaxValue()</strong></td>
+<td>T</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Md5(string source)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>MinValue()</strong></td>
+<td>T</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>MonthNames(CultureInfo cultureInfo)</strong></td>
+<td>IEnumerable&lt;string&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Multiply(sbyte multiplier, sbyte multiplicand)</strong></td>
+<td>sbyte</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Multiply(byte multiplier, byte multiplicand)</strong></td>
+<td>byte</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Multiply(short multiplier, short multiplicand)</strong></td>
+<td>short</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Multiply(ushort multiplier, ushort multiplicand)</strong></td>
+<td>ushort</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Multiply(int multiplier, int multiplicand)</strong></td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Multiply(uint multiplier, uint multiplicand)</strong></td>
+<td>uint</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Multiply(long multiplier, long multiplicand)</strong></td>
+<td>long</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Multiply(ulong multiplier, ulong multiplicand)</strong></td>
+<td>ulong</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Multiply(float multiplier, float multiplicand)</strong></td>
+<td>float</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Multiply(double multiplier, double multiplicand)</strong></td>
+<td>double</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Multiply(decimal multiplier, decimal multiplicand)</strong></td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Names()</strong></td>
+<td>IEnumerable&lt;string&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>New()</strong></td>
+<td>T</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>New(Type type, Type[] types, Object[] constructorArgs)</strong></td>
+<td>Object</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>NewDict()</strong></td>
+<td>Dictionary&lt;TKey, TValue&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>NewDict(KeyValuePair&lt;TKey, TValue&gt;[] keyValuePairs)</strong></td>
+<td>Dictionary&lt;TKey, TValue&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>NewDict(Tuple&lt;TKey, TValue&gt;[] keyValuePairs)</strong></td>
+<td>Dictionary&lt;TKey, TValue&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>NewList(T[] args)</strong></td>
+<td>List&lt;T&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Not(bool value)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Pad(string v, int pad)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Pad(string v, int pad, string padWith)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>PadEnd(string v, int pad)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>PadEnd(string v, int pad, string padWith)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>PadStart(string v, int pad)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>PadStart(string v, int pad, char padWith)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>PadStart(string v, int pad, string padWith)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ParseMarkdown(string content)</strong></td>
+<td>MarkdownDocument</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ParseRSS(string feedContent)</strong></td>
+<td>IEnumerable&lt;RssSchema&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Password(IEnumerable&lt;char&gt; from, int length)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>PMT(double ir, int np, decimal pv, decimal fv, int type)</strong></td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Property(string name)</strong></td>
+<td>PropertyInfo</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>RandomBytes(int bytes)</strong></td>
+<td>byte[]</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>RandomHex(int bytes)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Read(string path)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ReadStreamAsUTF8(Stream stream)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Remainder(sbyte dividend, sbyte divisor)</strong></td>
+<td>sbyte</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Remainder(byte dividend, byte divisor)</strong></td>
+<td>byte</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Remainder(short dividend, short divisor)</strong></td>
+<td>short</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Remainder(ushort dividend, ushort divisor)</strong></td>
+<td>ushort</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Remainder(int dividend, int divisor)</strong></td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Remainder(uint dividend, uint divisor)</strong></td>
+<td>uint</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Remainder(long dividend, long divisor)</strong></td>
+<td>long</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Remainder(ulong dividend, ulong divisor)</strong></td>
+<td>ulong</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Remainder(float dividend, float divisor)</strong></td>
+<td>float</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Remainder(double dividend, double divisor)</strong></td>
+<td>double</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Remainder(decimal dividend, decimal divisor)</strong></td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Remove(string text, string remove)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>RemoveAccents(string v)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>RemoveDiacritics(string text)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Repeat(char c, int repeat)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Repeat(string v, int repeat)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Replace(string v, string from, string to)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Round(decimal number, int precision)</strong></td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Round(double number, int precision)</strong></td>
+<td>double</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>SafeString(Object value)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Set(T obj, string name, TValue value)</strong></td>
+<td>void</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>SetMember(T instance, string name, Object value)</strong></td>
+<td>void</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>SetMember(Type type, Object instance, string name, Object value)</strong></td>
+<td>void</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Sha1(string source)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Sha256(string source)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Sha384(string source)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Sha512(string source)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ShiftLeft(sbyte value, int count)</strong></td>
+<td>sbyte</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ShiftLeft(byte value, int count)</strong></td>
+<td>byte</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ShiftLeft(short value, int count)</strong></td>
+<td>short</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ShiftLeft(ushort value, int count)</strong></td>
+<td>ushort</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ShiftLeft(int value, int count)</strong></td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ShiftLeft(uint value, int count)</strong></td>
+<td>uint</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ShiftLeft(long value, int count)</strong></td>
+<td>long</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ShiftLeft(ulong value, int count)</strong></td>
+<td>ulong</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ShiftRight(sbyte value, int count)</strong></td>
+<td>sbyte</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ShiftRight(byte value, int count)</strong></td>
+<td>byte</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ShiftRight(short value, int count)</strong></td>
+<td>short</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ShiftRight(ushort value, int count)</strong></td>
+<td>ushort</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ShiftRight(int value, int count)</strong></td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ShiftRight(uint value, int count)</strong></td>
+<td>uint</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ShiftRight(long value, int count)</strong></td>
+<td>long</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ShiftRight(ulong value, int count)</strong></td>
+<td>ulong</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Slugify(string v, int maxlength)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Strip(string source, string s)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>TempFileName()</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Text(byte[] v)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Text(decimal value)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Text(decimal value, IFormatProvider formatProvider)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Text(decimal value, string format)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Text(decimal value, string format, IFormatProvider formatProvider)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Toggle(ref bool value)</strong></td>
+<td>void</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Trim(string v)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Trim(string v, string trim)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>TrimEnd(string v)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>TrimEnd(string v, string trim)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>TrimStart(string v)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>TrimStart(string v, string trim)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Truncate(string s, int length)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>TruncateWithEllipsis(string s, int length)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Type()</strong></td>
+<td>Type</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Unescape(string v)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>UnixTimeMilliseconds(DateTime datetime)</strong></td>
+<td>long</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>UnixTimestamp(DateTime utcDateTime)</strong></td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>UpperCase(string v)</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Words(string v)</strong></td>
+<td>IEnumerable&lt;string&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Write(string path, string content)</strong></td>
+<td>void</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>XOr(sbyte a, sbyte b)</strong></td>
+<td>sbyte</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>XOr(byte a, byte b)</strong></td>
+<td>byte</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>XOr(short a, short b)</strong></td>
+<td>short</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>XOr(ushort a, ushort b)</strong></td>
+<td>ushort</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>XOr(int a, int b)</strong></td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>XOr(uint a, uint b)</strong></td>
+<td>uint</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>XOr(long a, long b)</strong></td>
+<td>long</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>XOr(ulong a, ulong b)</strong></td>
+<td>ulong</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>XOr(bool a, bool b)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="indexabletkey-tvalue-class">Indexable&lt;TKey, TValue&gt; Class</h1>
+<p>Namespace: underscore.net</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Item</strong></td>
+<td>TValue</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>_generator</strong></td>
+<td>Func&lt;TKey, TValue&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>_storage</strong></td>
+<td>IDictionary&lt;TKey, TValue&gt;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="indexabledicttkey-tvalue-class">IndexableDict&lt;TKey, TValue&gt; Class</h1>
+<p>Namespace: underscore.net</p>
+<p>Base class: <a href="#%C4%B1ndexable%3Ctkey,-tvalue%3E-class">Indexable&lt;TKey, TValue&gt;</a>&lt;TKey, TValue&gt;</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Item</strong></td>
+<td>TValue</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>_generator</strong></td>
+<td>Func&lt;TKey, TValue&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>_storage</strong></td>
+<td>IDictionary&lt;TKey, TValue&gt;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IndexableDict&lt;TKey, TValue&gt;(Func&lt;TKey, TValue&gt; generator)</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IndexableDict&lt;TKey, TValue&gt;(Func&lt;TKey, TValue&gt; generator, IDictionary&lt;TKey, TValue&gt; storage)</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="genericcomparert-class">GenericComparer<T> Class</h1>
+<p>Namespace: underscore.net.comparer</p>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GenericComparer&lt;T&gt;(Func&lt;T, T, int&gt; compare)</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="genericequalitycomparert-class">GenericEqualityComparer<T> Class</h1>
+<p>Namespace: underscore.net.comparer</p>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GenericEqualityComparer&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Returns</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Equals(T x, T y)</strong></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GetHashCode(T obj)</strong></td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>
