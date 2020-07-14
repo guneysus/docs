@@ -2,21 +2,14 @@
 
 - [`datetime`](#datetime)
   - [string to datetime](#string-to-datetime)
-    - [signature](#signature)
     - [usage](#usage)
   - [unix time stamp to datetime](#unix-time-stamp-to-datetime)
-    - [signature](#signature-1)
+    - [signature](#signature)
     - [usage](#usage-1)
 
 ## string to datetime
 
-```csharp
-static DateTime datetime(string s, string format, string cultureString)
-```
-
 Converts a string to datetime whose format is known.
-
-### signature
 
 ```csharp
 static DateTime datetime(string s, string format, string cultureString)

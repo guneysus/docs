@@ -1,0 +1,16 @@
+# miliseconds
+
+## datetime to unix miliseconds
+
+converts given datetime to unix miliseconds.
+
+```csharp
+long miliseconds(DateTime datetime)
+```
+
+### usage
+
+```csharp
+var date = new DateTime(2000, 1, 13, 0, 0, 0, DateTimeKind.Local)
+var ms = miliseconds(date); // 947714400000
+```
