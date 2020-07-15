@@ -1,21 +1,18 @@
-# `datetime`
+# datetime
 
-- [`datetime`](#datetime)
+- [datetime](#datetime)
   - [string to datetime](#string-to-datetime)
-    - [usage](#usage)
   - [unix time stamp to datetime](#unix-time-stamp-to-datetime)
     - [signature](#signature)
-    - [usage](#usage-1)
 
 ## string to datetime
 
 Converts a string to datetime whose format is known.
 
 ```csharp
-static DateTime datetime(string s, string format, string cultureString)
+DateTime datetime(string s, string format, string cultureString)
 ```
 
-### usage
 
 ```csharp
 DateTime date = datetime("29021996", "ddMMyyyy", "en-US");          // 1996-02-29
@@ -37,8 +34,6 @@ Converts a string to datetime whose format is known.
 ```csharp
 DateTime datetime(long seconds, DateTimeKind dateTimeKind)
 ```
-
-### usage
 
 ```csharp
 DateTime date 0= datetime(946684800, DateTimeKind.Unspecified); // 2000-01-01

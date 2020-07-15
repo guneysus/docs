@@ -5,5 +5,8 @@ develop:
 	
 build:
 	npm run build
-	
-.PHONY: default develop build
+
+deploy:
+	bash deploy.sh
+
+.PHONY: default develop build deploy

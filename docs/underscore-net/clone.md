@@ -3,7 +3,7 @@
 ## signature
 
 ```csharp
-static T clone<T>(T obj);
+T clone<T>(T obj);
 ```
 
 ## cloning lists

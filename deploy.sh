@@ -21,6 +21,6 @@ git commit -m "deploy: $(date --iso=seconds)"
 # git push --force-with-lease git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push --force-with-lease git@github.com:guneysus/docs.git master:gh-pages
+git push -f git@github.com:guneysus/docs.git master:gh-pages
 
 cd -
