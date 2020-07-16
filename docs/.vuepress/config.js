@@ -33,7 +33,28 @@ module.exports = {
     docsDir: 'docs',
     editLinkText: '',
     lastUpdated: true,
-    nav: [],
+    nav: [
+      ,{
+        link: '/underscore-net/',
+        text: 'underscore.net'
+      }        
+      ,{
+        link: '/iter-net/',
+        text: 'iter.net'
+      }
+      ,{
+        link: '/fn-net/',
+        text: 'fn.net'
+      }  
+      ,{
+        link: '/std-net/',
+        text: 'std.net'
+      } 
+      ,{
+        link: '/web-net/',
+        text: 'web.net'
+      }                
+    ],
     sidebar: 'auto'
   },
 
