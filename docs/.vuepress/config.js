@@ -34,7 +34,7 @@ module.exports = {
     editLinkText: '',
     lastUpdated: true,
     nav: [
-      ,{
+      {
         link: '/underscore-net/',
         text: 'underscore.net'
       }        
