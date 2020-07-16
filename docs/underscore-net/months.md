@@ -6,10 +6,8 @@
 IEnumerable<string> months(string cultureName)
 ```
 
-
 ```csharp
-IEnumerable<string> monthsEn = months("en-US");
-
+months("en-US")
 /*
 January, February, March, April, May, June,
 July, August, September, October, November, December
@@ -23,8 +21,8 @@ IEnumerable<string> months(CultureInfo cultureInfo)
 ```
 
 ```csharp
-CultureInfo culture = CultureInfo.GetCultureInfo("en-US");
-IEnumerable<string> monthsEn = months(culture);
+CultureInfo culture = CultureInfo.GetCultureInfo("en-US")
+months(culture)
 
 /*
 January, February, March, April, May, June,

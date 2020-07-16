@@ -8,6 +8,9 @@
     - [datetime](#datetime)
     - [generators](#generators)
     - [hash](#hash)
+    - [text & regex](#text--regex)
+    - [stream](#stream)
+    - [validators](#validators)
 
 ## installing
 
@@ -32,7 +35,7 @@ using _ = underscore.net.Underscore;
 ### core
 
 - [clone](clone)
-- [new](new)
+- [create](create)
 
 ### datetime
 
@@ -57,3 +60,30 @@ using _ = underscore.net.Underscore;
 - [sha256](sha256)
 - [sha384](sha384)
 - [sha512](sha512)
+
+### text & regex
+
+- [extractor](extractor)
+- [hex](hex)
+- [base64decode](base64decode)
+- [base64encode](base64encode)
+- [compress](compress)
+- [decompress](decompress)
+- [strip](strip)
+- [capitalize](capitalize)
+- [deburr](deburr)
+- [strip](strip)
+- [escape](escape)
+- [unescape](unescape)
+- [repeat](repeat)
+- [concat](concat)
+- [boolean](boolean)
+
+### stream
+
+- [read](read)
+
+### validators
+
+- [email](email)
+- [ip](ip)

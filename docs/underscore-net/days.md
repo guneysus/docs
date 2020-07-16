@@ -7,7 +7,6 @@ IEnumerable<string> days(string cultureName,
                          DayOfWeek firstDayOfWeek = DayOfWeek.Monday)
 ```
 
-
 ```csharp
 IEnumerable<string> dayNamesEN = days("en-US", DayOfWeek.Monday);
 /*
@@ -24,8 +23,8 @@ IEnumerable<string> days(CultureInfo cultureInfo,
 ```
 
 ```csharp
-CultureInfo culture = CultureInfo.GetCultureInfo("en-US");
-IEnumerable<string> dayNamesEN = days(culture, DayOfWeek.Monday);
+CultureInfo culture = CultureInfo.GetCultureInfo("en-US")
+IEnumerable<string> dayNamesEN = days(culture, DayOfWeek.Monday)
 /*
 "Monday", "Tuesday", "Wednesday",
 "Thursday", "Friday", "Saturday", "Sunday"

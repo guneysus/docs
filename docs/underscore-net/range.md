@@ -27,7 +27,7 @@ IEnumerable<int> range(int start, int end)
 ```
 
 ```csharp
-IEnumerable<int> numbers = range(1, 4);
+range(1, 4)
 /*
 1 2 3 4
 */
@@ -42,12 +42,12 @@ IEnumerable<int> range(int start, int end, int step)
 ```
 
 ```csharp
-IEnumerable<int> numbers = range(0, 15, 5);
+range(0, 15, 5)
 /*
 0, 5, 10, 15
 */
 
-IEnumerable<int> numbers = range(0, -3, -1);
+range(0, -3, -1)
 /*
 0, -1, -2, -3
 */

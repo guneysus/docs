@@ -10,5 +10,7 @@ long miliseconds(DateTime datetime)
 
 ```csharp
 var date = new DateTime(2000, 1, 13, 0, 0, 0, DateTimeKind.Local)
-var ms = miliseconds(date); // 947714400000
+
+miliseconds(date)
+// 947714400000
 ```

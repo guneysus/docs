@@ -18,5 +18,6 @@ DateTime lastday(int year, DateTimeKind kind = DateTimeKind.Unspecified)
 ```
 
 ```csharp
-DateTime endOfYear = lastday(2016);       // 2016-12-31
+DateTime endOfYear = lastday(2016)
+// 2016-12-31
 ```

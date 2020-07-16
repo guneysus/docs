@@ -9,7 +9,7 @@ string md5(string source)
 ```
 
 ```csharp
-string hash = md5("a")
+md5("a")
 /*
 0CC175B9C0F1B6A831C399E269772661
 */
