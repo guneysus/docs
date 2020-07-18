@@ -9,7 +9,7 @@ string base64encode(string message)
 ```
 
 ```csharp
-base64encode("hello world");
+base64encode("hello world")
 /*
 "aGVsbG8gd29ybGQ="
 */

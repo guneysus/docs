@@ -49,7 +49,11 @@ module.exports = {
       ,{
         link: '/std-net/',
         text: 'std.net'
-      } 
+      }
+      ,{
+        link: '/concurrent-net/',
+        text: 'concurrent.net'
+      }       
       ,{
         link: '/web-net/',
         text: 'web.net'
