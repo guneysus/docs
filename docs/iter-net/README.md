@@ -21,4 +21,6 @@ using _ = iter.net.Iter;
 ## functions
 
 ### collection
+
 - [compact](compact)
+- [climber](climber)

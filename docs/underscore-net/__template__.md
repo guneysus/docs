@@ -5,7 +5,7 @@
 short description
 
 ```csharp
-static DateTime method1()
+DateTime method1()
 ```
 
 ```csharp
