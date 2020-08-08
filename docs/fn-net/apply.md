@@ -5,9 +5,13 @@
 short description
 
 ```csharp
-DateTime method1()
+IEnumerable<T> apply<T>(IEnumerable<T> source, Func<T, T> fn)
 ```
 
+## __OVERLOAD#2__
+
+short description
+
 ```csharp
-object result = method1();          // expected output
+Func<T, T> apply<T>(Func<T, T> func, int times)
 ```

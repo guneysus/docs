@@ -24,3 +24,5 @@ using _ = iter.net.Iter;
 
 - [compact](compact)
 - [climber](climber)
+- [diff](diff)
+- [diffa](diffa)

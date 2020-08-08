@@ -52,6 +52,7 @@ using _ = underscore.net.Underscore;
 - [lastday](lastday)
 - [random](random)
 - [range](range)
+- [rrange](rrange)
 
 ### hash
 
