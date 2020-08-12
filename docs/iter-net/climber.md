@@ -75,12 +75,15 @@ calling `climber`
 ```csharp
  var leafs = climber(root: tree,
                         leafs: t => t.Leafs,
-                        startDepth: 1);
+                        startIndex: 1
+                        maxDepth: 5);
 ```
 
 Will return tuple list like that:
 
 ```txt
+(Level, Current, Parent)
+------------------------
 (1, 1, NULL)
 (2, 1.1, 1)
 (3, 1.1.1, 1.1)
@@ -111,7 +114,9 @@ You can easily represent the tree like this:
 ```
 
 ```csharp
-IEnumerable<(int, T, T)> climber<T>(T root,
-                                    Func<T, IEnumerable<T>> leafs,
-                                    int startDepth)
+IEnumerable<Tuple<int, T, T>> climber<T>(
+            T root,
+            Func<T, IEnumerable<T>> leafs,
+            int startIndex = 1,
+            int maxDepth = 10);
 ```
