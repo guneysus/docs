@@ -21,6 +21,8 @@ features:
   details: Reflection helpers
 - title: iter.net
   details: TODO
+- title: math.net
+  details: TODO  
 footer: Made by Ahmed Şeref Güneysu with ❤️
 
 ---

@@ -61,7 +61,11 @@ module.exports = {
       {
         link: '/refl-net/',
         text: 'refl.net'
-      } 
+      },
+      {
+        link: '/math-net/',
+        text: 'math.net'
+      }       
     ],
     sidebar: 'auto'
   },
