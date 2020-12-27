@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: https://via.placeholder.com/600/ccc.png/fff
+heroImage: /docs/img/logo.png
 tagline: side projects documentation
 actionText: Quick Start →
 actionLink: /underscore-net/
@@ -17,5 +17,10 @@ features:
   details: (windows only) .net core cli tool for querying DNS records.
 - title: promise.net
   details: ecmascript promise like syntax for async task
+- title: refl.net
+  details: Reflection helpers
+- title: iter.net
+  details: TODO
 footer: Made by Ahmed Şeref Güneysu with ❤️
+
 ---
