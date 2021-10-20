@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /docs/img/logo.png
+heroImage: https://avatars.githubusercontent.com/u/949232?v=4&size=100
 tagline: side projects documentation
 actionText: Quick Start →
 actionLink: /underscore-net/
